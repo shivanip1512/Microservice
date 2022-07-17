@@ -38,7 +38,7 @@ public class UserController {
 		this.restTemplate.setMessageConverters(messageConverters);
 
 		User user = userService.getUser(userId);
-		List contacts = this.restTemplate.getForObject("http://localhost:9002/contact/user/" + userId, ArrayList.class);
+		List contacts = this.restTemplate.getForObject("http://contact-service/contact/user/" + userId, ArrayList.class);
 		user.setContacts((java.util.List<Contact>) contacts);
 		return user;
 	}
